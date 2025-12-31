@@ -9,3 +9,6 @@ data/runs/
 # settings_current.json은 포함(설정은 깃에 남기는 걸 추천)
 # 만약 설정도 비공개로 하고 싶으면 아래 주석 해제
 # data/settings_current.json
+
+app.py.bak
+app.py.bak2
