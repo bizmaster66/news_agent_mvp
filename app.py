@@ -214,7 +214,6 @@ elif page == "Result":
                 traceback.print_exc(file=buf)
         out = buf.getvalue().strip()
         if out:
-1:
             st.code(out)
         st.rerun()
 
