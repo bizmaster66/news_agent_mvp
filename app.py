@@ -232,37 +232,9 @@ elif page == "Result":
 
 
     # ---- Actions: curate / summarize (no terminal) ----
-    st.subheader("Actions")
-    colA, colB, colC = st.columns([2, 2, 6])
-    with colA:
-        if st.button("큐레이션 생성 (curate)"):
-            import subprocess, os
-            cmd = ["python", "src/curate_rule.py", "--run_dir", str(run_path), "--th", "0.60", "--k", "20", "--cap", "80"]
-            st.write("Running:", " ".join(cmd))
-            r = subprocess.run(cmd, capture_output=True, text=True, env=os.environ.copy())
-            st.code((r.stdout or "") + "\n" + (r.stderr or ""))
-            st.success("큐레이션 생성 완료 (curations.json 갱신)")
-            st.rerun()
+    
 
-    with colB:
-        if st.button("요약 생성 (force)"):
-            import subprocess, os
-            env = os.environ.copy()
-            # PYTHONPATH 설정(로컬 실행 안정화)
-            env["PYTHONPATH"] = "."
-            cmd = ["python", "src/summarize_top15.py", "--run_dir", str(run_path), "--force"]
-            st.write("Running:", " ".join(cmd))
-            r = subprocess.run(cmd, capture_output=True, text=True, env=env)
-            st.code((r.stdout or "") + "\n" + (r.stderr or ""))
-            st.success("요약 생성 완료 (curations.json/theme_summaries.json 갱신)")
-            st.rerun()
-
-    with colC:
-        st.caption("※ Settings를 변경한 경우, 같은 Run에 반영하려면 위 버튼으로 curate→summarize를 다시 실행하세요.")
-
-
-    # ---- 수집 기사 미리보기 (30개, 1컬럼, URL 노출 없음) ----
-    st.subheader("수집 기사 (일부 30개 미리보기)")
+st.subheader("수집 기사 (일부 30개 미리보기)")
     articles_file = run_path / "articles.jsonl"
     if articles_file.exists():
         rows = []
