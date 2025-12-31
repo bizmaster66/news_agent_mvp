@@ -192,6 +192,10 @@ elif page == "Result":
     st.divider()
 
     # ---- Actions: curate / summarize (cloud-safe direct call) ----
+
+
+
+    
     st.subheader("Actions")
 
     import io, contextlib, traceback
@@ -199,7 +203,6 @@ elif page == "Result":
     from src import curate_rule, summarize_top15
 
     def run_and_show(label, fn):
-        st.toast(label)
         buf = io.StringIO()
         with st.spinner(label):
             try:
@@ -209,9 +212,8 @@ elif page == "Result":
                 traceback.print_exc(file=buf)
         out = buf.getvalue().strip()
         if out:
+1:
             st.code(out)
-        else:
-            st.info("완료(출력 없음)")
         st.rerun()
 
     c1, c2, c3 = st.columns([2,2,6])
@@ -231,10 +233,7 @@ elif page == "Result":
         st.caption("※ Settings 변경 후, 같은 Run에 반영하려면 curate → summarize를 다시 실행하세요.")
 
 
-    # ---- Actions: curate / summarize (no terminal) ----
-    
-
-st.subheader("수집 기사 (일부 30개 미리보기)")
+    st.subheader("수집 기사 (일부 30개 미리보기)")
     articles_file = run_path / "articles.jsonl"
     if articles_file.exists():
         rows = []
