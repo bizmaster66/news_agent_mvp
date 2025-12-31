@@ -1,0 +1,205 @@
+{
+  "media_priority_groups": [
+    "startup",
+    "it",
+    "econ",
+    "daily"
+  ],
+  "media_sources": [
+    {
+      "domain": "platum.kr",
+      "name": "플래텀",
+      "group": "startup",
+      "enabled": true
+    },
+    {
+      "domain": "venturesquare.net",
+      "name": "벤처스퀘어",
+      "group": "startup",
+      "enabled": true
+    },
+    {
+      "domain": "wowtale.net",
+      "name": "와우테일",
+      "group": "startup",
+      "enabled": true
+    },
+    {
+      "domain": "startuprecipe.co.kr",
+      "name": "스타트업레시피",
+      "group": "startup",
+      "enabled": true
+    },
+    {
+      "domain": "mt.co.kr",
+      "name": "머니투데이",
+      "group": "econ",
+      "enabled": true
+    },
+    {
+      "domain": "hankyung.com",
+      "name": "한국경제",
+      "group": "econ",
+      "enabled": true
+    },
+    {
+      "domain": "mk.co.kr",
+      "name": "매일경제",
+      "group": "econ",
+      "enabled": true
+    },
+    {
+      "domain": "fnnews.com",
+      "name": "파이낸셜뉴스",
+      "group": "econ",
+      "enabled": true
+    },
+    {
+      "domain": "bloter.net",
+      "name": "블로터",
+      "group": "it",
+      "enabled": true
+    },
+    {
+      "domain": "techm.kr",
+      "name": "테크M",
+      "group": "it",
+      "enabled": true
+    },
+    {
+      "domain": "byline.network",
+      "name": "바이라인네트웍크",
+      "group": "it",
+      "enabled": true
+    },
+    {
+      "domain": "chosun.com",
+      "name": "조선일보",
+      "group": "daily",
+      "enabled": true
+    },
+    {
+      "domain": "joongang.co.kr",
+      "name": "중앙일보",
+      "group": "daily",
+      "enabled": true
+    },
+    {
+      "domain": "hankookilbo.com",
+      "name": "한국일보",
+      "group": "daily",
+      "enabled": true
+    }
+  ],
+  "themes": [
+    {
+      "name": "스타트업",
+      "enabled": true,
+      "include_groups": [
+        [
+          "스타트업",
+          "투자유치",
+          "MOU",
+          "서비스 출시",
+          "유니콘",
+          "팁스",
+          "벤처투자",
+          "창업기획자/AC/VC/액셀러레이터"
+        ]
+      ],
+      "exclude_keywords": [],
+      "curation_priority": [
+        "한국 스타트업/VC 관련성",
+        "기술/제품 출시",
+        "투자유치/투자/M&A/IPO",
+        "시장/산업 파급력",
+        "정책/규제 변화"
+      ],
+      "max_items": 15,
+      "must_include": [
+        "스타트업"
+      ]
+    },
+    {
+      "name": "벤처투자",
+      "enabled": true,
+      "include_groups": [
+        [
+          "VC/PE/AC/신기사",
+          "펀드 결성",
+          "한국벤처투자",
+          "모태펀드",
+          "벤처캐피탈협회",
+          "펀드 출자/결성"
+        ]
+      ],
+      "exclude_keywords": [],
+      "curation_priority": [
+        "투자유치/투자/M&A/IPO",
+        "한국 스타트업/VC 관련성",
+        "펀드 출자/결성",
+        "정책/규제 변화",
+        "시장/산업 파급력"
+      ],
+      "max_items": 15,
+      "must_include_any": [
+        "투자 유치",
+        "벤처캐피탈",
+        "액셀러레이터",
+        "창업기획자",
+        "VC"
+      ]
+    },
+    {
+      "name": "스타트업 생태계",
+      "enabled": true,
+      "include_groups": [
+        [
+          "코리아스타트업포럼",
+          "스타트업얼라이언스",
+          "중소벤처기업부",
+          "오픈이노베이션",
+          "투자 결산",
+          "스타트업"
+        ]
+      ],
+      "exclude_keywords": [],
+      "curation_priority": [
+        "시장/산업 파급력",
+        "정책/규제 변화",
+        "한국 스타트업/VC 관련성"
+      ],
+      "max_items": 15,
+      "must_include": [
+        "스타트업"
+      ]
+    },
+    {
+      "name": "AI",
+      "enabled": true,
+      "include_groups": [
+        [
+          "AI",
+          "인공지능",
+          "OpenAI",
+          "Gemini",
+          "NVIDIA"
+        ]
+      ],
+      "exclude_keywords": [],
+      "curation_priority": [
+        "시장/산업 파급력",
+        "한국 스타트업/VC 관련성",
+        "투자유치/투자/M&A/IPO",
+        "정책/규제 변화"
+      ],
+      "max_items": 15
+    }
+  ],
+  "default_run_window": {
+    "start_time": "08:00:00",
+    "end_time": "07:59:59",
+    "timezone": "Asia/Seoul"
+  },
+  "updated_at": "2025-12-31T00:00:00+09:00"
+}
