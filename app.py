@@ -191,6 +191,46 @@ elif page == "Result":
 
     st.divider()
 
+    # ---- Actions: curate / summarize (cloud-safe direct call) ----
+    st.subheader("Actions")
+
+    import io, contextlib, traceback
+    from pathlib import Path
+    from src import curate_rule, summarize_top15
+
+    def run_and_show(label, fn):
+        st.toast(label)
+        buf = io.StringIO()
+        with st.spinner(label):
+            try:
+                with contextlib.redirect_stdout(buf), contextlib.redirect_stderr(buf):
+                    fn()
+            except Exception:
+                traceback.print_exc(file=buf)
+        out = buf.getvalue().strip()
+        if out:
+            st.code(out)
+        else:
+            st.info("완료(출력 없음)")
+        st.rerun()
+
+    c1, c2, c3 = st.columns([2,2,6])
+    with c1:
+        if st.button("큐레이션 생성 (curate)", key=f"curate_{run_path.name}"):
+            run_and_show(
+                "큐레이션 생성 중...",
+                lambda: curate_rule.main(Path(run_path), sim_threshold=0.60, k_neighbors=20, candidate_cap=80)
+            )
+    with c2:
+        if st.button("요약 생성 (force)", key=f"sum_{run_path.name}"):
+            run_and_show(
+                "요약 생성 중...",
+                lambda: summarize_top15.main(Path(run_path), sleep_sec=0.2, force=True)
+            )
+    with c3:
+        st.caption("※ Settings 변경 후, 같은 Run에 반영하려면 curate → summarize를 다시 실행하세요.")
+
+
     # ---- Actions: curate / summarize (no terminal) ----
     st.subheader("Actions")
     colA, colB, colC = st.columns([2, 2, 6])
