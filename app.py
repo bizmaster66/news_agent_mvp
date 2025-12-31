@@ -91,6 +91,8 @@ st.set_page_config(page_title="News Agent MVP", layout="wide")
 ensure_dirs()
 
 st.sidebar.title("News Agent MVP")
+BUILD_TAG = "cloud-check-001"
+st.sidebar.caption(f"Build: {BUILD_TAG}")
 page = st.sidebar.radio("메뉴", ["Run", "Result", "History", "Settings"])
 
 settings = load_settings()
